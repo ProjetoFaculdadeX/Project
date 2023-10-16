@@ -44,6 +44,7 @@
             DelToolStripButton2 = new ToolStripButton();
             label5 = new Label();
             cmbDepartment = new ComboBox();
+            returntoolStripButton1 = new ToolStripButton();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -122,7 +123,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { AddToolStripButton1, toolStripSeparator1, toolStripSeparator2, DelToolStripButton2 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { AddToolStripButton1, toolStripSeparator1, toolStripSeparator2, DelToolStripButton2, returntoolStripButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(479, 25);
@@ -175,6 +176,16 @@
             cmbDepartment.Size = new Size(121, 23);
             cmbDepartment.TabIndex = 10;
             // 
+            // returntoolStripButton1
+            // 
+            returntoolStripButton1.Alignment = ToolStripItemAlignment.Right;
+            returntoolStripButton1.Image = (Image)resources.GetObject("returntoolStripButton1.Image");
+            returntoolStripButton1.ImageTransparentColor = Color.Magenta;
+            returntoolStripButton1.Name = "returntoolStripButton1";
+            returntoolStripButton1.Size = new Size(57, 22);
+            returntoolStripButton1.Text = "Voltar";
+            returntoolStripButton1.Click += returntoolStripButton1_Click;
+            // 
             // FrmCadastroProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -218,5 +229,6 @@
         private ToolStripButton DelToolStripButton2;
         private Label label5;
         private ComboBox cmbDepartment;
+        private ToolStripButton returntoolStripButton1;
     }
 }

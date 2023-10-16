@@ -30,6 +30,7 @@ namespace Projeto1
             {
                 Text = "Visualizar Produto";
                 AddToolStripButton1.Visible = false;
+                DelToolStripButton2.Visible = false;
                 TravarFormulario();
             }
             //Excluir
@@ -208,6 +209,13 @@ namespace Projeto1
                 MessageBox.Show("CADASTRO ATUALIZADO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+        }
+
+        private void returntoolStripButton1_Click(object sender, EventArgs e)
+        {
+            FrmEstoque frmEstoque = new FrmEstoque();
+            frmEstoque.Show();
+            this.Close();
         }
     }
 }
