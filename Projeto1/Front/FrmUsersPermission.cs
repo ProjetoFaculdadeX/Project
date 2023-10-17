@@ -19,7 +19,7 @@ namespace Projeto1.Front
             InitializeComponent();
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (from Deparments in context.Deparments select Deparments).ToList();
+                dataGridView1.DataSource = (context.Deparments).ToList();
             }
             ConfigurarGrade();
         }

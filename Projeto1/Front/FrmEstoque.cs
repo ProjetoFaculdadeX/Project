@@ -20,7 +20,7 @@ namespace Projeto1
 
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (from estoque in context.Estoque select estoque).ToList();
+                dataGridView1.DataSource = (context.Estoque).ToList();
             }
             ConfigurarGrade();
 
@@ -54,9 +54,7 @@ namespace Projeto1
                 frm.ShowDialog();
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (from Estoque
-                                            in context.Estoque
-                                            select Estoque).ToList();
+                dataGridView1.DataSource = (context.Estoque).ToList();
             }
 
         }
@@ -69,9 +67,7 @@ namespace Projeto1
 
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (from Estoque
-                                            in context.Estoque
-                                            select Estoque).ToList();
+                dataGridView1.DataSource = (context.Estoque).ToList();
             }
         }
 
@@ -89,9 +85,7 @@ namespace Projeto1
                 frm.ShowDialog();
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (from Estoque
-                                            in context.Estoque
-                                            select Estoque).ToList();
+                dataGridView1.DataSource = (context.Estoque.ToList();
             }
         }
 
