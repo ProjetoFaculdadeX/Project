@@ -291,5 +291,12 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-/.vs/
+.vs/
+Projeto1/bin/
+Projeto1/obj/
 
+/.vs/Projeto1/DesignTimeBuild/.dtbcache.v2
+/.vs/Projeto1/v17/.futdcache.v2
+/Projeto1/bin/
+/Projeto1/bin/Debug/net7.0-windows/Projeto1.exe
+/Projeto1/obj/Debug/net7.0-windows/Projeto1.csproj.FileListAbsolute.txt
