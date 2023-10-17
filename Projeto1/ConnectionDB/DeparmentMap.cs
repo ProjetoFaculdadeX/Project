@@ -17,6 +17,8 @@ namespace Projeto1.ConnectionDB
             ToTable("Department");
             HasKey(x => x.IdDepartment);
             Property(x => x.Name).HasColumnName("Name_Deparment").HasColumnType("varchar").HasMaxLength(100);
+            Property(x => x.access).HasColumnName("Access").HasColumnType("varchar").HasMaxLength(255);
+            Property(x => x.nivel).HasColumnName("nivel").HasColumnType("varchar").HasMaxLength(2);
 
         }
     }

@@ -1,4 +1,5 @@
 using Projeto1.ConnectionDB;
+using Projeto1.Front;
 using System.Windows.Forms;
 
 namespace Projeto1
@@ -10,24 +11,22 @@ namespace Projeto1
             InitializeComponent();
 
         }
-
-        private void btnEstoque_Click_1(object sender, EventArgs e)
+        private void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var frm = new FrmEstoque())
                 frm.ShowDialog();
             this.Hide();
         }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            using (var frm = new FrmReport())
-                frm.ShowDialog();
-            this.Hide();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
+        private void sairDoSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void permissãoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FrmUsersPermission())
+                frm.ShowDialog();
+            this.Hide();
         }
     }
 
