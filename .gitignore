@@ -301,3 +301,5 @@ Projeto1/obj/**
 /Projeto1/bin/Debug/net7.0-windows/Projeto1.exe
 /Projeto1/obj/Debug/net7.0-windows/Projeto1.csproj.FileListAbsolute.txt
 /Projeto1/obj/Debug/net7.0-windows/ref/Projeto1.dll
+
+*.cache
