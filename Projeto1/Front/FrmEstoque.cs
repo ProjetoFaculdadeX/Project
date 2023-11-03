@@ -85,13 +85,13 @@ namespace Projeto1
                 frm.ShowDialog();
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (context.Estoque.ToList();
+                dataGridView1.DataSource = (context.Estoque.ToList());
             }
         }
 
         private void ReturntoolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmMenu frmMenu = new FrmMenu();
+            FrmMenu frmMenu = new FrmMenu("");
             frmMenu.Show();
             this.Close();
         }

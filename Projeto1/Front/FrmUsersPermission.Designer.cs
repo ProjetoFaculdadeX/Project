@@ -43,7 +43,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { RegistreToolStripButton1, toolStripSeparator1, DeleteToolStripButton2 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 25);
+            toolStrip1.Size = new Size(811, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -87,7 +87,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(811, 472);
             Controls.Add(dataGridView1);
             Controls.Add(toolStrip1);
             Name = "FrmUsersPermission";

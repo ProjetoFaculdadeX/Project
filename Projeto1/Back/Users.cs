@@ -15,7 +15,7 @@ namespace Projeto1.Back
         public String? Deparment { get; set; }
         public DateTime DataCreat { get; set; }
         public DateTime DataModified { get; set; }
-     
-
+        public string? ativo { get; set; }
+        public int? Passworderror { get; set; }
     }
 }

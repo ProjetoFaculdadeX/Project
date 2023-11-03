@@ -16,5 +16,12 @@ namespace Projeto1.Front
         {
             InitializeComponent();
         }
+
+        private void AddUserToolStripButton1_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            using (var frm = new frmUser(id))
+                frm.ShowDialog();
+        }
     }
 }

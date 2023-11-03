@@ -58,6 +58,7 @@
             AddUserToolStripButton1.Name = "AddUserToolStripButton1";
             AddUserToolStripButton1.Size = new Size(120, 22);
             AddUserToolStripButton1.Text = "Cadastrar Usuario";
+            AddUserToolStripButton1.Click += AddUserToolStripButton1_Click;
             // 
             // toolStripSeparator1
             // 
