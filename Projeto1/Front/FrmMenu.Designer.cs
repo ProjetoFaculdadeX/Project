@@ -28,47 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEstoque = new Button();
-            btnReport = new Button();
-            btnClose = new Button();
+            menuStrip1 = new MenuStrip();
+            estoqueToolStripMenuItem = new ToolStripMenuItem();
+            cadastroDeProdutoToolStripMenuItem = new ToolStripMenuItem();
+            solicitaçãoDeProdutoToolStripMenuItem = new ToolStripMenuItem();
+            relatorioToolStripMenuItem = new ToolStripMenuItem();
+            estoqueToolStripMenuItem1 = new ToolStripMenuItem();
+            solicitaçãoToolStripMenuItem = new ToolStripMenuItem();
+            cadastroUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            cadastroDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            permissãoDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            trocaDeSenhaToolStripMenuItem = new ToolStripMenuItem();
+            sairDoSistemaToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // btnEstoque
+            // menuStrip1
             // 
-            btnEstoque.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEstoque.Location = new Point(31, 93);
-            btnEstoque.Name = "btnEstoque";
-            btnEstoque.Size = new Size(194, 79);
-            btnEstoque.TabIndex = 0;
-            btnEstoque.Text = "Estoque";
-            btnEstoque.UseVisualStyleBackColor = true;
-            btnEstoque.Click += btnEstoque_Click_1;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { estoqueToolStripMenuItem, relatorioToolStripMenuItem, cadastroUsuarioToolStripMenuItem, sairDoSistemaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1220, 24);
+            menuStrip1.TabIndex = 3;
+            menuStrip1.Text = "menuStrip1";
             // 
-            // btnReport
+            // estoqueToolStripMenuItem
             // 
-            btnReport.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnReport.Location = new Point(31, 213);
-            btnReport.Name = "btnReport";
-            btnReport.Size = new Size(194, 79);
-            btnReport.TabIndex = 1;
-            btnReport.Text = "Relatorios";
-            btnReport.UseVisualStyleBackColor = true;
-            btnReport.Click += btnReport_Click;
+            estoqueToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeProdutoToolStripMenuItem, solicitaçãoDeProdutoToolStripMenuItem });
+            estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
+            estoqueToolStripMenuItem.Size = new Size(61, 20);
+            estoqueToolStripMenuItem.Text = "Estoque";
             // 
-            // btnClose
+            // cadastroDeProdutoToolStripMenuItem
             // 
-            btnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnClose.AutoSize = true;
-            btnClose.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.ForeColor = SystemColors.ControlText;
-            btnClose.ImageAlign = ContentAlignment.BottomRight;
-            btnClose.Location = new Point(1122, 639);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(86, 45);
-            btnClose.TabIndex = 2;
-            btnClose.Text = "Sair";
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += btnClose_Click;
+            cadastroDeProdutoToolStripMenuItem.Name = "cadastroDeProdutoToolStripMenuItem";
+            cadastroDeProdutoToolStripMenuItem.Size = new Size(193, 22);
+            cadastroDeProdutoToolStripMenuItem.Text = "Cadastro de Produto";
+            cadastroDeProdutoToolStripMenuItem.Click += cadastroDeProdutoToolStripMenuItem_Click;
+            // 
+            // solicitaçãoDeProdutoToolStripMenuItem
+            // 
+            solicitaçãoDeProdutoToolStripMenuItem.Name = "solicitaçãoDeProdutoToolStripMenuItem";
+            solicitaçãoDeProdutoToolStripMenuItem.Size = new Size(193, 22);
+            solicitaçãoDeProdutoToolStripMenuItem.Text = "Solicitação de Produto";
+            // 
+            // relatorioToolStripMenuItem
+            // 
+            relatorioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { estoqueToolStripMenuItem1, solicitaçãoToolStripMenuItem });
+            relatorioToolStripMenuItem.Name = "relatorioToolStripMenuItem";
+            relatorioToolStripMenuItem.Size = new Size(66, 20);
+            relatorioToolStripMenuItem.Text = "Relatorio";
+            // 
+            // estoqueToolStripMenuItem1
+            // 
+            estoqueToolStripMenuItem1.Name = "estoqueToolStripMenuItem1";
+            estoqueToolStripMenuItem1.Size = new Size(131, 22);
+            estoqueToolStripMenuItem1.Text = "Estoque";
+            // 
+            // solicitaçãoToolStripMenuItem
+            // 
+            solicitaçãoToolStripMenuItem.Name = "solicitaçãoToolStripMenuItem";
+            solicitaçãoToolStripMenuItem.Size = new Size(131, 22);
+            solicitaçãoToolStripMenuItem.Text = "Solicitação";
+            // 
+            // cadastroUsuarioToolStripMenuItem
+            // 
+            cadastroUsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeUsuarioToolStripMenuItem, permissãoDeUsuarioToolStripMenuItem, trocaDeSenhaToolStripMenuItem });
+            cadastroUsuarioToolStripMenuItem.Name = "cadastroUsuarioToolStripMenuItem";
+            cadastroUsuarioToolStripMenuItem.Size = new Size(64, 20);
+            cadastroUsuarioToolStripMenuItem.Text = "Usuarios";
+            // 
+            // cadastroDeUsuarioToolStripMenuItem
+            // 
+            cadastroDeUsuarioToolStripMenuItem.Name = "cadastroDeUsuarioToolStripMenuItem";
+            cadastroDeUsuarioToolStripMenuItem.Size = new Size(186, 22);
+            cadastroDeUsuarioToolStripMenuItem.Text = "Cadastro de usuario";
+            // 
+            // permissãoDeUsuarioToolStripMenuItem
+            // 
+            permissãoDeUsuarioToolStripMenuItem.Name = "permissãoDeUsuarioToolStripMenuItem";
+            permissãoDeUsuarioToolStripMenuItem.Size = new Size(186, 22);
+            permissãoDeUsuarioToolStripMenuItem.Text = "Permissão de usuario";
+            permissãoDeUsuarioToolStripMenuItem.Click += permissãoDeUsuarioToolStripMenuItem_Click;
+            // 
+            // trocaDeSenhaToolStripMenuItem
+            // 
+            trocaDeSenhaToolStripMenuItem.Name = "trocaDeSenhaToolStripMenuItem";
+            trocaDeSenhaToolStripMenuItem.Size = new Size(186, 22);
+            trocaDeSenhaToolStripMenuItem.Text = "Troca de senha";
+            // 
+            // sairDoSistemaToolStripMenuItem
+            // 
+            sairDoSistemaToolStripMenuItem.Name = "sairDoSistemaToolStripMenuItem";
+            sairDoSistemaToolStripMenuItem.Size = new Size(99, 20);
+            sairDoSistemaToolStripMenuItem.Text = "Sair do Sistema";
+            sairDoSistemaToolStripMenuItem.Click += sairDoSistemaToolStripMenuItem_Click;
             // 
             // FrmMenu
             // 
@@ -77,20 +131,29 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1220, 696);
-            Controls.Add(btnClose);
-            Controls.Add(btnReport);
-            Controls.Add(btnEstoque);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "FrmMenu";
             Text = "Menu Inicial";
             WindowState = FormWindowState.Maximized;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnEstoque;
-        private Button btnReport;
-        private Button btnClose;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem estoqueToolStripMenuItem;
+        private ToolStripMenuItem cadastroDeProdutoToolStripMenuItem;
+        private ToolStripMenuItem solicitaçãoDeProdutoToolStripMenuItem;
+        private ToolStripMenuItem relatorioToolStripMenuItem;
+        private ToolStripMenuItem estoqueToolStripMenuItem1;
+        private ToolStripMenuItem solicitaçãoToolStripMenuItem;
+        private ToolStripMenuItem cadastroUsuarioToolStripMenuItem;
+        private ToolStripMenuItem cadastroDeUsuarioToolStripMenuItem;
+        private ToolStripMenuItem permissãoDeUsuarioToolStripMenuItem;
+        private ToolStripMenuItem trocaDeSenhaToolStripMenuItem;
+        private ToolStripMenuItem sairDoSistemaToolStripMenuItem;
     }
 }

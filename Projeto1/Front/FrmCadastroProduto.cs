@@ -57,8 +57,7 @@ namespace Projeto1
             {
                 using (var context = new DataContext())
                 {
-                    var listaDepartments = from department in context.Deparments
-                                           select department;
+                    var listaDepartments = context.Deparments;
 
                     cmbDepartment.DataSource = listaDepartments.ToList();
                     cmbDepartment.DisplayMember = "Name";

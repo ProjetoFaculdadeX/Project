@@ -10,6 +10,8 @@ namespace Projeto1.Back
     {
         public int IdDepartment { get; set; }
         public string? Name { get; set; }
+        public string? access { get; set; }
+        public string? nivel {  get; set; }
 
     }
 }
