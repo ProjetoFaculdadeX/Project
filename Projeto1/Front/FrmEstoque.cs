@@ -42,15 +42,18 @@ namespace Projeto1
             dataGridView1.Columns["Unit"].HeaderText = "Unidades";
             dataGridView1.Columns["Unit"].Width = 80;
 
-            dataGridView1.Columns["Department"].HeaderText = "Departamento";
-            dataGridView1.Columns["Department"].Width = 120;
+            dataGridView1.Columns["IdDepartment"].HeaderText = "Departamento";
+            dataGridView1.Columns["IdDepartment"].Width = 120;
+
+            dataGridView1.Columns["Deparment"].HeaderText = "Deparment";
+            dataGridView1.Columns["Deparment"].Visible = false;
 
         }
 
         private void AddToolStripButton_Click(object sender, EventArgs e)
         {
             var id = 0;
-            using (var frm = new FrmCadastroProduto(id))
+            using (var frm = new FrmCadastroProduto(id, "c"))
                 frm.ShowDialog();
             using (var context = new DataContext())
             {
@@ -62,7 +65,7 @@ namespace Projeto1
         private void AlterToolStripButton2_Click(object sender, EventArgs e)
         {
             var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-            using (var frm = new FrmCadastroProduto(id))
+            using (var frm = new FrmCadastroProduto(id, "l"))
                 frm.ShowDialog();
 
             using (var context = new DataContext())

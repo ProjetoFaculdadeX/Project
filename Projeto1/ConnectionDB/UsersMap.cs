@@ -14,9 +14,13 @@ namespace Projeto1.ConnectionDB
         {
             ToTable("Table_User");
             HasKey(x => x.IdUser);
+            HasRequired(x => x.Deparment)
+                .WithMany(s => s.Usuarios)
+                .HasForeignKey(x => x.IdDeparment)
+                .WillCascadeOnDelete(false);
             Property(x => x.Name).HasColumnName("Name_User").HasColumnType("varchar").HasMaxLength(100).IsRequired();
             Property(x => x.Email).HasColumnName("Email_User").HasColumnType("varchar").HasMaxLength(150).IsRequired();
-            Property(x => x.Deparment).HasColumnName("Department").HasColumnType("varchar").HasMaxLength(150).IsRequired();
+            Property(x => x.IdDeparment).IsRequired();
             Property(x => x.Password).HasColumnName("Password_User").HasColumnType("varchar").HasMaxLength(120).IsRequired();            
             Property(x => x.DataCreat).HasColumnName("Data_Created").HasColumnType("datetime");
             Property(x => x.DataModified).HasColumnName("Data_Modified").HasColumnType("datetime");

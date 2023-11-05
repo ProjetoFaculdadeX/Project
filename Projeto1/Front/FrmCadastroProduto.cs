@@ -41,6 +41,20 @@ namespace Projeto1
                 DelToolStripButton2.Visible = true;
                 TravarFormulario();
             }
+            else if (operacao == "a")
+            {
+                Text = "Cadastrar produto";
+                AddToolStripButton1.Visible = true;
+                DelToolStripButton2.Visible = false;
+                TravarFormulario();
+            }
+            else if (operacao == "l")
+            {
+                Text = "Alterar produto";
+                AddToolStripButton1.Visible = true;
+                DelToolStripButton2.Visible = false;
+                TravarFormulario();
+            }
         }
 
         private void TravarFormulario()
@@ -61,7 +75,7 @@ namespace Projeto1
 
                     cmbDepartment.DataSource = listaDepartments.ToList();
                     cmbDepartment.DisplayMember = "Name";
-                    cmbDepartment.ValueMember = "Name";
+                    cmbDepartment.ValueMember = "IdDepartment";
                     cmbDepartment.SelectedIndex = -1;
                 }
             }
@@ -84,7 +98,7 @@ namespace Projeto1
                         txtdescription.Text = product.Description;
                         txtunits.Text = product.Unit!.ToString();
                         txtlote.Text = product.Lote;
-                        cmbDepartment.SelectedValue = product.Department;
+                        cmbDepartment.SelectedValue = product.IdDepartment;
 
                     }
                 }
@@ -111,7 +125,7 @@ namespace Projeto1
             product.Description = txtdescription.Text;
             product.Unit = txtunits.Text;
             product.Lote = txtlote.Text;
-            product.Department = Convert.ToString(cmbDepartment.SelectedValue);
+            product.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);
             product.Date_Created = DateTime.Now;
             product.Date_Updated = DateTime.Now;
 
@@ -141,21 +155,6 @@ namespace Projeto1
                     }
                 }
             }
-
-            //catch (System.Data.Entity.Core.UpdateException)
-            //{
-            //    MessageBox.Show("Erro ao salvar", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-
-            //catch (System.Data.Entity.Infrastructure.DbUpdateException ex) //DbContext
-            //{
-            //    Console.WriteLine(ex.InnerException);
-            //}
-
-            //catch (Exception ex)
-            //{
-            //   MessageBox.Show("CADASTRO ATUALIZADO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
 
             catch (DbUpdateException ex)
             {
@@ -199,6 +198,7 @@ namespace Projeto1
                         context.Estoque.Attach(product);
 
                     context.Estoque.Remove(product);
+                    MessageBox.Show("PRODUTO EXCLUIDO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     context.SaveChanges();
                     return true;
                 }

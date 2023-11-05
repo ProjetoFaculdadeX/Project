@@ -7,7 +7,7 @@ namespace Projeto1
 {
     public partial class FrmMenu : Form
     {
-        
+
         public FrmMenu(string strlogin)
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace Projeto1
                 var user = context.Users.SingleOrDefault(u => u.Email == email);
                 if (user != null)
                 {
-                    string? department = user.Deparment;
+                    int department = user.IdDeparment;
                 }
                 else
                 {
@@ -25,7 +25,7 @@ namespace Projeto1
                 }
             }
 
-        }      
+        }
 
         private void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -45,7 +45,11 @@ namespace Projeto1
             this.Hide();
         }
 
-
+        private void cadastroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            using (var frm = new frmUser(id))
+                frm.ShowDialog();
+        }
     }
-
 }

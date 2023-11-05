@@ -60,7 +60,7 @@ namespace Projeto1
                     user.Name = txtName.Text;
                     user.Email = txtEmail.Text;
                     user.Password = BD.Criptografar(TxtPassword.Text);
-                    user.Deparment = Convert.ToString(cmbDepartment.SelectedValue);
+                    user.IdDeparment = Convert.ToInt32(cmbDepartment.SelectedValue);
                     user.DataCreat = DateTime.Now;
                     user.DataModified = DateTime.Now;
 
@@ -73,13 +73,13 @@ namespace Projeto1
                     {
                         MessageBox.Show("Email não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    if (string.IsNullOrEmpty(user.Deparment))
+                    if (user.IdDeparment == 0)
                     {
-                        MessageBox.Show("Email não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Departamento não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     if (string.IsNullOrEmpty(user.Password))
                     {
-                        MessageBox.Show("Email não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Senha não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     if (user.IdUser == 0)
@@ -104,8 +104,8 @@ namespace Projeto1
         private void bntReturn_Click(object sender, EventArgs e)
         {
             using (var frm = new FrmLogin())
-                frm.ShowDialog();
-            this.Hide();
+                frm.Show();
+            this.Close();
         }
     }
 }
