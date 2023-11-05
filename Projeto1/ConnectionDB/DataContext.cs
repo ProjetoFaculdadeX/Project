@@ -11,11 +11,11 @@ namespace Projeto1.ConnectionDB
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base(@"Data Source=JULIO_FREITAS;Initial Catalog=Projeto;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+        public DataContext() : base(@"Data Source=DESKTOP-AUL6F82;Initial Catalog=Projeto;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         { }
 
         public DbSet<Estoque> Estoque { get; set; }
-        public DbSet<Deparment> Deparments { get; set; }
+        public DbSet<Department> Deparments { get; set; }
         public DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

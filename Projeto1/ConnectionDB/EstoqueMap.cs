@@ -16,7 +16,7 @@ namespace Projeto1.ConnectionDB
             //Chave Primaria
             HasKey(x => x.Id);
             //Chave Estrangeira
-            HasRequired(x => x.Deparment)
+            HasRequired(x => x.Department)
                 .WithMany(s => s!.Estoques)
                 .HasForeignKey(x => x.IdDepartment)
                 .WillCascadeOnDelete(false);

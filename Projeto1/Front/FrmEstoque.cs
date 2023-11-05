@@ -16,7 +16,7 @@ namespace Projeto1
     {
         public FrmEstoque()
         {
-            InitializeComponent();
+            InitializeComponent();           
 
             using (var context = new DataContext())
             {
@@ -24,7 +24,8 @@ namespace Projeto1
             }
             ConfigurarGrade();
 
-        }
+        }      
+
         private void ConfigurarGrade()
         {
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9);
@@ -45,8 +46,10 @@ namespace Projeto1
             dataGridView1.Columns["IdDepartment"].HeaderText = "Departamento";
             dataGridView1.Columns["IdDepartment"].Width = 120;
 
-            dataGridView1.Columns["Deparment"].HeaderText = "Deparment";
-            dataGridView1.Columns["Deparment"].Visible = false;
+            dataGridView1.Columns["Department"].HeaderText = "Department";
+            dataGridView1.Columns["Department"].Visible = false;
+
+
 
         }
 
@@ -94,7 +97,7 @@ namespace Projeto1
 
         private void ReturntoolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmMenu frmMenu = new FrmMenu("");
+            FrmMenu frmMenu = new FrmMenu();
             frmMenu.Show();
             this.Close();
         }

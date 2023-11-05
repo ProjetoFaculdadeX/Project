@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Projeto1
     {
         public frmUser(int id)
         {
-            InitializeComponent();          
+            InitializeComponent();
 
             Department();
 
@@ -43,7 +44,7 @@ namespace Projeto1
 
 
         }
-    
+
         private void bntRegister_Click(object sender, EventArgs e)
         {
             if (Salvar())
@@ -60,7 +61,7 @@ namespace Projeto1
                     user.Name = txtName.Text;
                     user.Email = txtEmail.Text;
                     user.Password = BD.Criptografar(TxtPassword.Text);
-                    user.IdDeparment = Convert.ToInt32(cmbDepartment.SelectedValue);
+                    user.IdDepartment = Convert.ToString(cmbDepartment.SelectedValue);
                     user.DataCreat = DateTime.Now;
                     user.DataModified = DateTime.Now;
 
@@ -73,7 +74,7 @@ namespace Projeto1
                     {
                         MessageBox.Show("Email não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    if (user.IdDeparment == 0)
+                    if (string.IsNullOrEmpty(user.IdDepartment))
                     {
                         MessageBox.Show("Departamento não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -90,7 +91,21 @@ namespace Projeto1
                     context.SaveChanges();
                     MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
+
                 }
+                catch (DbUpdateException ex)
+                {
+                    foreach (var entry in ex.Entries)
+                    {
+                        if(entry.Entity is Users)
+                        {
+                            var entity = (Users)entry.Entity;
+                           
+                        }
+                    }
+                    return false;
+                }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show("Falha ao salvar.\n" + ex.Message);
@@ -104,7 +119,7 @@ namespace Projeto1
         private void bntReturn_Click(object sender, EventArgs e)
         {
             using (var frm = new FrmLogin())
-                frm.Show();
+                frm.ShowDialog();
             this.Close();
         }
     }

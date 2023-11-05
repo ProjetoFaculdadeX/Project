@@ -10,7 +10,7 @@ using Projeto1.Back;
 
 namespace Projeto1.ConnectionDB
 {
-    public class DeparmentMap : EntityTypeConfiguration<Deparment>
+    public class DeparmentMap : EntityTypeConfiguration<Department>
     {
         public DeparmentMap()
         {

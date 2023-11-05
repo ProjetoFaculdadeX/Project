@@ -12,13 +12,11 @@ namespace Projeto1.Back
         public string? Name { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
-        public int IdDeparment { get; set; }
+        public string? IdDepartment { get; set; }
         public DateTime DataCreat { get; set; }
         public DateTime DataModified { get; set; }
         public string? ativo { get; set; }
-        public int? Passworderror { get; set; }
-
-        public virtual Deparment? Deparment { get; set; }
+        public int? Passworderror { get; set; }              
         
     }
 }

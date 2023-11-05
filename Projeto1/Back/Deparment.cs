@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace Projeto1.Back
 {
-    public class Deparment
+    public class Department
     {
         public int? IdDepartment { get; set; }
         public string? Name { get; set; }
         public string? access { get; set; }
         public string? nivel {  get; set; }
 
-        public virtual ICollection<Estoque>? Estoques { get; set;}
-
-        public virtual ICollection<Users>? Usuarios { get; set; }
+        public virtual ICollection<Estoque>? Estoques { get; set;}        
 
     }
 }

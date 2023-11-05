@@ -2,33 +2,21 @@ using Projeto1.ConnectionDB;
 using Projeto1.Front;
 using System.Data.Entity;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Projeto1
 {
     public partial class FrmMenu : Form
     {
 
-        public FrmMenu(string strlogin)
+        public FrmMenu()
         {
-            InitializeComponent();
-            string email = strlogin;
-            using (var context = new DataContext())
-            {
-                var user = context.Users.SingleOrDefault(u => u.Email == email);
-                if (user != null)
-                {
-                    int department = user.IdDeparment;
-                }
-                else
-                {
-                    MessageBox.Show("erro ao localizar departamento!", "Departamento", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-
+            InitializeComponent();           
+           
         }
 
-        private void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        public void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
             using (var frm = new FrmEstoque())
                 frm.ShowDialog();
             this.Hide();

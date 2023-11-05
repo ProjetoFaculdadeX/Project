@@ -16,7 +16,7 @@ namespace Projeto1.Back
         public string? Lote {  get; set; }
         public DateTime Date_Updated { get; set;}
 
-        public virtual Deparment? Deparment { get; set; }
+        public virtual Department? Department { get; set; }
 
     }
 }

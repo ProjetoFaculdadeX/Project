@@ -17,7 +17,7 @@ namespace Projeto1
 {
     public partial class FrmLogin : Form
     {
-        public string? strlogin {get;private set;}
+        public string? strlogin;
 
         public FrmLogin()
         {
@@ -31,6 +31,7 @@ namespace Projeto1
             var id = 0;
             using (var frm = new frmUser(id))
                 frm.ShowDialog();
+            this.Close();
 
         }
 
@@ -51,7 +52,7 @@ namespace Projeto1
                             user.Passworderror = 0;
                             MessageBox.Show("Login realizado com sucesso!", "Bem vindo", MessageBoxButtons.OK, MessageBoxIcon.None);
                             LimparCampos();
-                            FrmMenu frmMenu = new FrmMenu(user.Email!);
+                            FrmMenu frmMenu = new FrmMenu();
                             frmMenu.Show();
                             this.Hide();
                             context.SaveChanges();
