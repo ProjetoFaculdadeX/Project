@@ -71,6 +71,7 @@
             solicitaçãoDeProdutoToolStripMenuItem.Name = "solicitaçãoDeProdutoToolStripMenuItem";
             solicitaçãoDeProdutoToolStripMenuItem.Size = new Size(193, 22);
             solicitaçãoDeProdutoToolStripMenuItem.Text = "Solicitação de Produto";
+            solicitaçãoDeProdutoToolStripMenuItem.Click += solicitaçãoDeProdutoToolStripMenuItem_Click;
             // 
             // relatorioToolStripMenuItem
             // 

@@ -16,6 +16,12 @@
     <Compile Update="Front\FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Front\FrmSolicitacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Front\FrmSolicitacaoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Front\FrmUsers.cs">
       <SubType>Form</SubType>
     </Compile>

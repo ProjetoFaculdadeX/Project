@@ -11,12 +11,12 @@ namespace Projeto1
 
         public FrmMenu()
         {
-            InitializeComponent();           
-           
+            InitializeComponent();
+
         }
 
         public void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
             using (var frm = new FrmEstoque())
                 frm.ShowDialog();
             this.Hide();
@@ -38,6 +38,13 @@ namespace Projeto1
             var id = 0;
             using (var frm = new frmUser(id))
                 frm.ShowDialog();
+        }
+
+        private void solicitaçãoDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FrmSolicitacao())
+                frm.ShowDialog();
+            this.Hide();
         }
     }
 }

@@ -71,12 +71,14 @@ namespace Projeto1
             {
                 using (var context = new DataContext())
                 {
+                    
                     var listaDepartments = context.Deparments;
 
                     cmbDepartment.DataSource = listaDepartments.ToList();
                     cmbDepartment.DisplayMember = "Name";
-                    cmbDepartment.ValueMember = "IdDepartment";
-                    cmbDepartment.SelectedIndex = -1;
+                    cmbDepartment.ValueMember = "Name";                    
+                    cmbDepartment.SelectedIndex = -1;  
+                    
                 }
             }
             catch (Exception ex)
@@ -99,6 +101,7 @@ namespace Projeto1
                         txtunits.Text = product.Unit!.ToString();
                         txtlote.Text = product.Lote;
                         cmbDepartment.SelectedValue = product.IdDepartment;
+                       
 
                     }
                 }
@@ -125,7 +128,7 @@ namespace Projeto1
             product.Description = txtdescription.Text;
             product.Unit = txtunits.Text;
             product.Lote = txtlote.Text;
-            product.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);
+            product.IdDepartment = Convert.ToString(cmbDepartment.SelectedValue);            
             product.Date_Created = DateTime.Now;
             product.Date_Updated = DateTime.Now;
 

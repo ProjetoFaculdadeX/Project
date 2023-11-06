@@ -7,13 +7,13 @@ namespace Projeto1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class StatusUser : IMigrationMetadata
+    public sealed partial class initial2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(StatusUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311031342357_StatusUser"; }
+            get { return "202311051705038_initial2"; }
         }
         
         string IMigrationMetadata.Source

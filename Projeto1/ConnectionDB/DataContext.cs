@@ -17,12 +17,14 @@ namespace Projeto1.ConnectionDB
         public DbSet<Estoque> Estoque { get; set; }
         public DbSet<Department> Deparments { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Solicitacao> Solicitacao { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new EstoqueMap());
             modelBuilder.Configurations.Add(new DeparmentMap());
             modelBuilder.Configurations.Add(new UsersMap());
+            modelBuilder.Configurations.Add(new SolicitacaoMap());
         }
     }
 }

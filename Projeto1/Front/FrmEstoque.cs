@@ -45,12 +45,6 @@ namespace Projeto1
 
             dataGridView1.Columns["IdDepartment"].HeaderText = "Departamento";
             dataGridView1.Columns["IdDepartment"].Width = 120;
-
-            dataGridView1.Columns["Department"].HeaderText = "Department";
-            dataGridView1.Columns["Department"].Visible = false;
-
-
-
         }
 
         private void AddToolStripButton_Click(object sender, EventArgs e)

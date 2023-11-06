@@ -7,13 +7,13 @@ namespace Projeto1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class PassworderrorUser : IMigrationMetadata
+    public sealed partial class solicitacao : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PassworderrorUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(solicitacao));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311031530564_PassworderrorUser"; }
+            get { return "202311052008149_solicitacao"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,13 +7,13 @@ namespace Projeto1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class EstoqueDepartmentInt : IMigrationMetadata
+    public sealed partial class initial5 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EstoqueDepartmentInt));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial5));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311041555296_EstoqueDepartmentInt"; }
+            get { return "202311051813277_initial5"; }
         }
         
         string IMigrationMetadata.Source

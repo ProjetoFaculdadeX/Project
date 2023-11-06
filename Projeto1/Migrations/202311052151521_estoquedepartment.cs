@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PassworderrorUser : DbMigration
+    public partial class estoquedepartment : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Table_User", "Passworderror", c => c.Int(nullable: false));
+            AddColumn("dbo.Estoque", "Departamento", c => c.String(nullable: false, maxLength: 100, unicode: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Table_User", "Passworderror");
+            DropColumn("dbo.Estoque", "Departamento");
         }
     }
 }
