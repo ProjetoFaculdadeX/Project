@@ -14,5 +14,7 @@ namespace Projeto1.Back
         public string? access { get; set; }
         public string? nivel {  get; set; }   
 
+        public virtual ICollection<Estoque>? estoque { get;}
+
     }
 }

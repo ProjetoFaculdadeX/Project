@@ -26,9 +26,9 @@ namespace Projeto1.Front
         }
         private void TravarFormulario()
         {
-            txtdescription.ReadOnly = true;
-            txtid.ReadOnly = true;
-            txtlote.ReadOnly = true;
+            txtdescription.ReadOnly = false;
+            txtid.ReadOnly = false;
+            txtlote.ReadOnly = false;
             txtunits.ReadOnly = true;
             cmbDepartment.Enabled = false;
         }
@@ -38,7 +38,8 @@ namespace Projeto1.Front
             {
                 using (var context = new DataContext())
                 {
-                    var listaDepartments = context.Deparments;
+                    var listaDepartments = from department in context.Deparments
+                                           select department;
 
                     cmbDepartment.DataSource = listaDepartments.ToList();
                     cmbDepartment.DisplayMember = "Name";
@@ -51,7 +52,8 @@ namespace Projeto1.Front
                 MessageBox.Show("Falha a localizar Departamento.\n" + ex.Message);
             }
         }
-        private void ObterProduto(int id)
+
+            private void ObterProduto(int id)
         {
             txtid.Text = id.ToString();
             try
@@ -62,7 +64,7 @@ namespace Projeto1.Front
                     if (product != null)
                     {
                         txtdescription.Text = product.Description;
-                        txtunits.Text = product.Unit!.ToString();
+                        txtunits.Text = "0".ToString();
                         txtlote.Text = product.Lote;
                         cmbDepartment.SelectedValue = product.IdDepartment;
 
@@ -87,8 +89,9 @@ namespace Projeto1.Front
             var produto = new Solicitacao();
 
             produto.Id = Convert.ToInt32(txtid.Text);
+            produto.IdEstoque = Convert.ToInt32(txtid.Text);
             produto.Description = txtdescription.Text;
-            produto.Unit = txtunits.Text;
+            produto.Unit =Convert.ToInt32(txtunits.Text);
             produto.Lote = txtlote.Text;
             produto.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);
             produto.Date_Created = DateTime.Now;
@@ -121,7 +124,7 @@ namespace Projeto1.Front
             }
             catch (Exception)
             {
-                MessageBox.Show("CADASTRO ATUALIZADO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("SOLICITAÇÃO REALIZADA COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 

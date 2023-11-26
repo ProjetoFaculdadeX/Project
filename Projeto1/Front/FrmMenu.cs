@@ -17,24 +17,25 @@ namespace Projeto1
 
         public void cadastroDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Hide();
             using (var frm = new FrmEstoque())
                 frm.ShowDialog();
-            this.Hide();
-        }
+                    }
         private void sairDoSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void permissãoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Hide();
             using (var frm = new FrmUsersPermission())
-                frm.ShowDialog();
-            this.Hide();
+                frm.ShowDialog();           
         }
 
         private void cadastroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Hide();
             var id = 0;
             using (var frm = new frmUser(id))
                 frm.ShowDialog();
@@ -42,9 +43,17 @@ namespace Projeto1
 
         private void solicitaçãoDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Hide();
             using (var frm = new FrmSolicitacao())
                 frm.ShowDialog();
-            this.Hide();
+            
+        }
+
+        private void produtosSolicitadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using (var frm = new FrmEstoqueSolicitacao())
+                frm.ShowDialog();
         }
     }
 }

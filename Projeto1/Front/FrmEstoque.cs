@@ -45,12 +45,20 @@ namespace Projeto1
 
             dataGridView1.Columns["IdDepartment"].HeaderText = "Departamento";
             dataGridView1.Columns["IdDepartment"].Width = 120;
+
+            dataGridView1.Columns["Department"].HeaderText = "Departamento";
+            dataGridView1.Columns["Department"].Visible = false;
+
+
+            dataGridView1.Columns["Solicitacao"].HeaderText = "Solicitacao";
+            dataGridView1.Columns["Solicitacao"].Visible = false;
+
         }
 
         private void AddToolStripButton_Click(object sender, EventArgs e)
         {
             var id = 0;
-            using (var frm = new FrmCadastroProduto(id, "c"))
+            using (var frm = new FrmCadastroProduto(id))
                 frm.ShowDialog();
             using (var context = new DataContext())
             {

@@ -15,9 +15,14 @@ namespace Projeto1.ConnectionDB
             ToTable("dbo.Solicitacao");
             //Chave Primaria
             HasKey(x => x.Id);
-            //Chave Estrangeira      
+            //Chave Estrangeira
+             HasRequired(x => x.Estoque)
+                .WithMany(s => s.Solicitacao)
+                .HasForeignKey(x => x.IdEstoque)
+                .WillCascadeOnDelete(false);
+            Property(x => x.IdEstoque).IsRequired().HasColumnType("int");
             Property(x => x.Description).IsRequired().HasColumnType("varchar").HasMaxLength(100).IsRequired();
-            Property(x => x.Unit).IsRequired().HasColumnType("varchar").HasMaxLength(100).IsRequired();
+            Property(x => x.Unit).IsRequired().HasColumnType("int");
             Property(x => x.IdDepartment).IsRequired();
             Property(x => x.Date_Created).IsRequired().HasColumnType("datetime");
             Property(x => x.Lote).IsRequired().HasColumnType("varchar").HasMaxLength(30).IsRequired();

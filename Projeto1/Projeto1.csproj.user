@@ -4,6 +4,12 @@
     <Compile Update="Front\FrmCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Front\FrmEstoqueSolicitacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Front\FrmEstoqueSolicitacaoAtender.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Front\FrmReport.cs">
       <SubType>Form</SubType>
     </Compile>

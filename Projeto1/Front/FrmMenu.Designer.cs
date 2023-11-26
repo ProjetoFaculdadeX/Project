@@ -40,6 +40,7 @@
             permissãoDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
             trocaDeSenhaToolStripMenuItem = new ToolStripMenuItem();
             sairDoSistemaToolStripMenuItem = new ToolStripMenuItem();
+            produtosSolicitadosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             // estoqueToolStripMenuItem
             // 
-            estoqueToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeProdutoToolStripMenuItem, solicitaçãoDeProdutoToolStripMenuItem });
+            estoqueToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeProdutoToolStripMenuItem, solicitaçãoDeProdutoToolStripMenuItem, produtosSolicitadosToolStripMenuItem });
             estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             estoqueToolStripMenuItem.Size = new Size(61, 20);
             estoqueToolStripMenuItem.Text = "Estoque";
@@ -126,6 +127,13 @@
             sairDoSistemaToolStripMenuItem.Text = "Sair do Sistema";
             sairDoSistemaToolStripMenuItem.Click += sairDoSistemaToolStripMenuItem_Click;
             // 
+            // produtosSolicitadosToolStripMenuItem
+            // 
+            produtosSolicitadosToolStripMenuItem.Name = "produtosSolicitadosToolStripMenuItem";
+            produtosSolicitadosToolStripMenuItem.Size = new Size(193, 22);
+            produtosSolicitadosToolStripMenuItem.Text = "Produtos Solicitados";
+            produtosSolicitadosToolStripMenuItem.Click += produtosSolicitadosToolStripMenuItem_Click;
+            // 
             // FrmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,5 +165,6 @@
         private ToolStripMenuItem permissãoDeUsuarioToolStripMenuItem;
         private ToolStripMenuItem trocaDeSenhaToolStripMenuItem;
         private ToolStripMenuItem sairDoSistemaToolStripMenuItem;
+        private ToolStripMenuItem produtosSolicitadosToolStripMenuItem;
     }
 }

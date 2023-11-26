@@ -1,5 +1,4 @@
-﻿using Projeto1.Back;
-using Projeto1.ConnectionDB;
+﻿using Projeto1.ConnectionDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,18 +11,19 @@ using System.Windows.Forms;
 
 namespace Projeto1.Front
 {
-    public partial class FrmSolicitacao : Form
+    public partial class FrmEstoqueSolicitacao : Form
     {
-        public FrmSolicitacao()
+        public FrmEstoqueSolicitacao()
         {
             InitializeComponent();
-
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (context.Estoque).ToList();
+                dataGridView1.DataSource = (context.Solicitacao).ToList();
             }
             ConfigurarGrade();
+
         }
+
         private void ConfigurarGrade()
         {
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9);
@@ -35,40 +35,40 @@ namespace Projeto1.Front
             dataGridView1.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            dataGridView1.Columns["IdEstoque"].HeaderText = "IdEstoque";
+            dataGridView1.Columns["IdEstoque"].Width = 80;
+
             dataGridView1.Columns["Description"].HeaderText = "Descrição";
             dataGridView1.Columns["Description"].Width = 250;
 
             dataGridView1.Columns["Unit"].HeaderText = "Unidades";
             dataGridView1.Columns["Unit"].Width = 80;
 
-            dataGridView1.Columns["IdDepartment"].HeaderText = "Departamento";
-            dataGridView1.Columns["IdDepartment"].Width = 120;
+            dataGridView1.Columns["IdDepartment"].HeaderText = "IdDepartamento";
+            dataGridView1.Columns["IdDepartment"].Width = 20;
 
-            dataGridView1.Columns["Department"].HeaderText = "Department";
-            dataGridView1.Columns["Department"].Visible = false;
+            dataGridView1.Columns["Date_Created"].HeaderText = "Criação";
+            dataGridView1.Columns["Date_Created"].Width = 80;
 
-            dataGridView1.Columns["Solicitacao"].HeaderText = "Solicitacao";
-            dataGridView1.Columns["Solicitacao"].Visible = false;
+            dataGridView1.Columns["Lote"].HeaderText = "Lote";
+            dataGridView1.Columns["Lote"].Width = 80;
+
+
+            dataGridView1.Columns["Estoque"].HeaderText = "Estoque";
+            dataGridView1.Columns["Estoque"].Visible = false;
 
         }
 
         private void AddToolStripButton_Click(object sender, EventArgs e)
         {
             var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-            using (var frm = new FrmSolicitacaoProduto(id))
+            using (var frm = new FrmCadastroProduto(id, "l"))
                 frm.ShowDialog();
 
             using (var context = new DataContext())
             {
                 dataGridView1.DataSource = (context.Estoque).ToList();
             }
-        }
-
-        private void ReturntoolStripButton1_Click(object sender, EventArgs e)
-        {
-            Close();
-            using (var frm = new FrmSolicitacao())
-            frm.ShowDialog();
         }
     }
 }

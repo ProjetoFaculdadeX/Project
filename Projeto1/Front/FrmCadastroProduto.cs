@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,29 +43,43 @@ namespace Projeto1
                 DelToolStripButton2.Visible = true;
                 TravarFormulario();
             }
-            else if (operacao == "a")
-            {
-                Text = "Cadastrar produto";
-                AddToolStripButton1.Visible = true;
-                DelToolStripButton2.Visible = false;
-                TravarFormulario();
-            }
+            //else if (operacao == "a")
+            //{
+            //    Text = "Cadastrar produto";
+            //    AddToolStripButton1.Visible = true;
+            //    DelToolStripButton2.Visible = false;
+            //    TravarFormulario();
+            //}
             else if (operacao == "l")
             {
                 Text = "Alterar produto";
                 AddToolStripButton1.Visible = true;
-                DelToolStripButton2.Visible = false;
-                TravarFormulario();
+                DelToolStripButton2.Visible = false;               
             }
         }
 
-        private void TravarFormulario()
+        private void TravarFormulario(string operacao = "a")
         {
+            if (operacao == "v")
             txtdescription.ReadOnly = true;
             txtid.ReadOnly = true;
             txtlote.ReadOnly = true;
             txtunits.ReadOnly = true;
             cmbDepartment.Enabled = false;
+
+            if (operacao == "e")
+            txtdescription.ReadOnly = true;
+            txtid.ReadOnly = true;
+            txtlote.ReadOnly = true;
+            txtunits.ReadOnly = true;
+            cmbDepartment.Enabled = false;
+
+            //if(operacao == "a" || operacao == "l")
+            //txtdescription.ReadOnly = true;
+            //txtid.ReadOnly = true;
+            //txtlote.ReadOnly = true;
+            //txtunits.ReadOnly = true;
+            //cmbDepartment.Enabled = true;
         }
         public void PopularDepartment()
         {
@@ -71,20 +87,20 @@ namespace Projeto1
             {
                 using (var context = new DataContext())
                 {
-                    
-                    var listaDepartments = context.Deparments;
+                    var listaDepartments = from department in context.Deparments
+                                           select department;
 
                     cmbDepartment.DataSource = listaDepartments.ToList();
                     cmbDepartment.DisplayMember = "Name";
-                    cmbDepartment.ValueMember = "Name";                    
-                    cmbDepartment.SelectedIndex = -1;  
-                    
+                    cmbDepartment.ValueMember = "IdDepartment";
+                    cmbDepartment.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Falha a localizar Departamento.\n" + ex.Message);
             }
+
         }
 
         private void ObterProduto(int id)
@@ -126,9 +142,9 @@ namespace Projeto1
 
             product.Id = Convert.ToInt32("0" + txtid.Text);
             product.Description = txtdescription.Text;
-            product.Unit = txtunits.Text;
+            product.Unit = Convert.ToInt32(txtunits);
             product.Lote = txtlote.Text;
-            product.IdDepartment = Convert.ToString(cmbDepartment.SelectedValue);            
+            product.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);            
             product.Date_Created = DateTime.Now;
             product.Date_Updated = DateTime.Now;
 
@@ -137,7 +153,7 @@ namespace Projeto1
                 MessageBox.Show("Descrição não pode estar em branco!", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            if (string.IsNullOrEmpty(product.Unit))
+            if (product.Unit == 0)
             {
                 MessageBox.Show("Quantidade não pode estar em branco!", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -190,34 +206,44 @@ namespace Projeto1
         {
             try
             {
+                string id = txtid.Text;
                 using (var context = new DataContext())
                 {
-                    var product = new Estoque();
+                    var product = context.Estoque.First();
 
-                    product.Id = Convert.ToInt32(txtid.Text);
+                    product.Id = Convert.ToInt32(txtid.Text);                    
                     var entry = context.Entry(product);
 
-                    if (entry.State == EntityState.Detached)
-                        context.Estoque.Attach(product);
+                    if (product.IdDepartment != null)
+                    {
+                        MessageBox.Show("PRODUTO COM DEPARTAMENTO VINCULADO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                        return false;
+                    }
+                    else
+                    {
+                        context.Entry(product).State = EntityState.Deleted;
+                        context.Estoque.Remove(product);
+                        MessageBox.Show("PRODUTO EXCLUIDO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        context.SaveChanges();
+                        return true;
+                    }
+                    
 
-                    context.Estoque.Remove(product);
-                    MessageBox.Show("PRODUTO EXCLUIDO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    context.SaveChanges();
-                    return true;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("CADASTRO ATUALIZADO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("PRODUTO NÃO PODE SER EXCLUIDO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
         }
 
         private void returntoolStripButton1_Click(object sender, EventArgs e)
         {
+            Close();
             FrmEstoque frmEstoque = new FrmEstoque();
             frmEstoque.Show();
-            this.Close();
+            
         }
     }
 }

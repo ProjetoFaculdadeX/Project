@@ -16,7 +16,7 @@ namespace Projeto1.ConnectionDB
             HasKey(x => x.IdUser);          
             Property(x => x.Name).HasColumnName("Name_User").HasColumnType("varchar").HasMaxLength(100).IsRequired();
             Property(x => x.Email).HasColumnName("Email_User").HasColumnType("varchar").HasMaxLength(150).IsRequired();
-            Property(x => x.IdDepartment).IsRequired();
+            Property(x => x.IdDepartment).HasColumnType("int").IsRequired();
             Property(x => x.Password).HasColumnName("Password_User").HasColumnType("varchar").HasMaxLength(120).IsRequired();            
             Property(x => x.DataCreat).HasColumnName("Data_Created").HasColumnType("datetime");
             Property(x => x.DataModified).HasColumnName("Data_Modified").HasColumnType("datetime");

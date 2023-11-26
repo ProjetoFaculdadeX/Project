@@ -48,12 +48,20 @@ namespace Projeto1
         private void bntRegister_Click(object sender, EventArgs e)
         {
             if (Salvar())
-                Close();
+                this.Close();
+
+            using (var frm = new FrmLogin())
+            {
+                frm.ShowDialog();
+            }
+
         }
 
         private bool Salvar()
         {
             var user = new Users();
+            var passworderror = "0";
+            var status = "A";
             using (var context = new DataContext())
                 try
                 {
@@ -61,9 +69,11 @@ namespace Projeto1
                     user.Name = txtName.Text;
                     user.Email = txtEmail.Text;
                     user.Password = BD.Criptografar(TxtPassword.Text);
-                    user.IdDepartment = Convert.ToString(cmbDepartment.SelectedValue);
+                    user.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);
                     user.DataCreat = DateTime.Now;
                     user.DataModified = DateTime.Now;
+                    user.Passworderror = Convert.ToInt32(passworderror);
+                    user.ativo = status;
 
                     if (string.IsNullOrEmpty(user.Name))
                     {
@@ -73,39 +83,36 @@ namespace Projeto1
                     if (string.IsNullOrEmpty(user.Email))
                     {
                         MessageBox.Show("Email não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
                     }
-                    if (string.IsNullOrEmpty(user.IdDepartment))
+                    if (user.IdDepartment == 0) 
                     {
                         MessageBox.Show("Departamento não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
                     }
                     if (string.IsNullOrEmpty(user.Password))
                     {
                         MessageBox.Show("Senha não pode estar em branco!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
+                    }
+                    var existingUser = context.Users.FirstOrDefault(u => u.Email == user.Email);
+                    if (existingUser != null)
+                    {
+                        MessageBox.Show("E-mail já cadastrado!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
                     }
 
                     if (user.IdUser == 0)
                         context.Users.Add(user);
+
                     else
                         context.Entry(user).State = System.Data.Entity.EntityState.Modified;
-
-                    context.SaveChanges();
-                    MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
-
+                    
+                        context.SaveChanges();
+                        MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    
                 }
-                catch (DbUpdateException ex)
-                {
-                    foreach (var entry in ex.Entries)
-                    {
-                        if(entry.Entity is Users)
-                        {
-                            var entity = (Users)entry.Entity;
-                           
-                        }
-                    }
-                    return false;
-                }
-
                 catch (Exception ex)
                 {
                     MessageBox.Show("Falha ao salvar.\n" + ex.Message);
@@ -118,9 +125,10 @@ namespace Projeto1
 
         private void bntReturn_Click(object sender, EventArgs e)
         {
+            Close();
             using (var frm = new FrmLogin())
                 frm.ShowDialog();
-            this.Close();
+            
         }
     }
 }
