@@ -67,8 +67,9 @@ namespace Projeto1.Front
         private void ReturntoolStripButton1_Click(object sender, EventArgs e)
         {
             Close();
-            using (var frm = new FrmSolicitacao())
+            using (var frm = new FrmMenu())
             frm.ShowDialog();
+            
         }
     }
 }

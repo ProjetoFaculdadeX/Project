@@ -91,6 +91,7 @@ namespace Projeto1
             var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
             using (var frm = new FrmCadastroProduto(id, "e"))
                 frm.ShowDialog();
+
             using (var context = new DataContext())
             {
                 dataGridView1.DataSource = (context.Estoque.ToList());

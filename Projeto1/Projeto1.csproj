@@ -9,7 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Front\FrmUsersInitialcs.cs" />
+    <Compile Remove="Front\FrmUsersInitialcs.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Front\FrmUsersInitialcs.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.0" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="itext.bouncy-castle-adapter" Version="8.0.2" />
+    <PackageReference Include="itext.bouncy-castle-fips-adapter" Version="8.0.2" />
+    <PackageReference Include="itext7" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-fips-adapter" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
   </ItemGroup>
 
   <ItemGroup>

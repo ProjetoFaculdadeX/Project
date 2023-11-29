@@ -53,7 +53,7 @@ namespace Projeto1.Front
             }
         }
 
-            private void ObterProduto(int id)
+        private void ObterProduto(int id)
         {
             txtid.Text = id.ToString();
             try
@@ -91,7 +91,7 @@ namespace Projeto1.Front
             produto.Id = Convert.ToInt32(txtid.Text);
             produto.IdEstoque = Convert.ToInt32(txtid.Text);
             produto.Description = txtdescription.Text;
-            produto.Unit =Convert.ToInt32(txtunits.Text);
+            produto.Unit = Convert.ToInt32(txtunits.Text);
             produto.Lote = txtlote.Text;
             produto.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);
             produto.Date_Created = DateTime.Now;
@@ -102,7 +102,7 @@ namespace Projeto1.Front
                 {
                     {
                         if (produto.Id != 0)
-                            context.Solicitacao.Add(produto);                     
+                            context.Solicitacao.Add(produto);
 
                         context.SaveChanges();
                         return true;
@@ -130,6 +130,13 @@ namespace Projeto1.Front
 
             return false;
 
+        }
+
+        private void returntoolStripButton1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using (var frm = new FrmSolicitacao())
+                frm.ShowDialog();
         }
     }
 

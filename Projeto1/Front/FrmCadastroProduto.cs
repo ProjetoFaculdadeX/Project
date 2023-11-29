@@ -142,7 +142,7 @@ namespace Projeto1
 
             product.Id = Convert.ToInt32("0" + txtid.Text);
             product.Description = txtdescription.Text;
-            product.Unit = Convert.ToInt32(txtunits);
+            product.Unit = Convert.ToInt32(txtunits.Text);
             product.Lote = txtlote.Text;
             product.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);            
             product.Date_Created = DateTime.Now;

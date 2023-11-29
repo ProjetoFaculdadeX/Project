@@ -10,9 +10,6 @@
     <Compile Update="Front\FrmEstoqueSolicitacaoAtender.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Front\FrmReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Front\FrmEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -29,12 +26,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Front\FrmUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Front\FrmUsersInitialcs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Front\FrmUsersPermission.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

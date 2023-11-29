@@ -1,4 +1,5 @@
 ﻿using Projeto1.ConnectionDB;
+using Projeto1.Migrations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace Projeto1.Front
             InitializeComponent();
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (context.Solicitacao).ToList();
+                dataGridViewSolicitacao.DataSource = (context.Solicitacao).ToList();
             }
             ConfigurarGrade();
 
@@ -26,49 +27,94 @@ namespace Projeto1.Front
 
         private void ConfigurarGrade()
         {
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9);
-            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 9);
+            dataGridViewSolicitacao.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9);
+            dataGridViewSolicitacao.DefaultCellStyle.Font = new Font("Arial", 9);
             //dataGridView1.RowHeadersWidth = 25;
 
-            dataGridView1.Columns["Id"].HeaderText = "ID";
-            dataGridView1.Columns["Id"].Width = 80;
-            dataGridView1.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewSolicitacao.Columns["Id"].HeaderText = "ID";
+            dataGridViewSolicitacao.Columns["Id"].Width = 80;
+            dataGridViewSolicitacao.Columns["Id"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewSolicitacao.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dataGridView1.Columns["IdEstoque"].HeaderText = "IdEstoque";
-            dataGridView1.Columns["IdEstoque"].Width = 80;
+            dataGridViewSolicitacao.Columns["IdEstoque"].HeaderText = "IdEstoque";
+            dataGridViewSolicitacao.Columns["IdEstoque"].Width = 80;
 
-            dataGridView1.Columns["Description"].HeaderText = "Descrição";
-            dataGridView1.Columns["Description"].Width = 250;
+            dataGridViewSolicitacao.Columns["Description"].HeaderText = "Descrição";
+            dataGridViewSolicitacao.Columns["Description"].Width = 250;
 
-            dataGridView1.Columns["Unit"].HeaderText = "Unidades";
-            dataGridView1.Columns["Unit"].Width = 80;
+            dataGridViewSolicitacao.Columns["Unit"].HeaderText = "Unidades";
+            dataGridViewSolicitacao.Columns["Unit"].Width = 80;
 
-            dataGridView1.Columns["IdDepartment"].HeaderText = "IdDepartamento";
-            dataGridView1.Columns["IdDepartment"].Width = 20;
+            dataGridViewSolicitacao.Columns["IdDepartment"].HeaderText = "IdDepartamento";
+            dataGridViewSolicitacao.Columns["IdDepartment"].Width = 60;
 
-            dataGridView1.Columns["Date_Created"].HeaderText = "Criação";
-            dataGridView1.Columns["Date_Created"].Width = 80;
+            dataGridViewSolicitacao.Columns["Date_Created"].HeaderText = "Data Criação";
+            dataGridViewSolicitacao.Columns["Date_Created"].Width = 120;
 
-            dataGridView1.Columns["Lote"].HeaderText = "Lote";
-            dataGridView1.Columns["Lote"].Width = 80;
+            dataGridViewSolicitacao.Columns["Lote"].HeaderText = "Lote";
+            dataGridViewSolicitacao.Columns["Lote"].Width = 80;
 
 
-            dataGridView1.Columns["Estoque"].HeaderText = "Estoque";
-            dataGridView1.Columns["Estoque"].Visible = false;
+            dataGridViewSolicitacao.Columns["Estoque"].HeaderText = "Estoque";
+            dataGridViewSolicitacao.Columns["Estoque"].Visible = false;
 
         }
 
         private void AddToolStripButton_Click(object sender, EventArgs e)
         {
-            var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID"].Value);
-            using (var frm = new FrmCadastroProduto(id, "l"))
-                frm.ShowDialog();
+
+            int id = 0;
+            if (dataGridViewSolicitacao.CurrentRow is not null)
+            {
+                id = Convert.ToInt32(dataGridViewSolicitacao.CurrentRow.Cells["ID"].Value);
+                using (var frm = new FrmEstoqueSolicitacaoAtender(id, "a"))
+                    frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Falha a localizar solicitação.\n");
+                this.Hide();
+                using (var frm = new FrmMenu())
+                    frm.ShowDialog();
+
+            }
 
             using (var context = new DataContext())
             {
-                dataGridView1.DataSource = (context.Estoque).ToList();
+                dataGridViewSolicitacao.DataSource = (context.Solicitacao).ToList();
             }
+        }
+
+        private void ReturntoolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (var frm = new FrmMenu())
+                frm.ShowDialog();
+        }
+
+        private void DeltoolStripButton1_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            if (dataGridViewSolicitacao.CurrentRow is not null)
+            {
+                id = Convert.ToInt32(dataGridViewSolicitacao.CurrentRow.Cells["ID"].Value);
+                using (var frm = new FrmEstoqueSolicitacaoAtender(id, "e"))
+                    frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Falha a localizar solicitação.\n");
+                this.Hide();
+                using (var frm = new FrmMenu())
+                    frm.ShowDialog();
+
+            }
+
+            using (var context = new DataContext())
+            {
+                dataGridViewSolicitacao.DataSource = (context.Solicitacao).ToList();
+            }
+
         }
     }
 }

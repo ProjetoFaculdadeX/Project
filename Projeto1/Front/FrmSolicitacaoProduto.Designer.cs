@@ -162,6 +162,7 @@
             returntoolStripButton1.Name = "returntoolStripButton1";
             returntoolStripButton1.Size = new Size(57, 22);
             returntoolStripButton1.Text = "Voltar";
+            returntoolStripButton1.Click += returntoolStripButton1_Click;
             // 
             // FrmSolicitacaoProduto
             // 

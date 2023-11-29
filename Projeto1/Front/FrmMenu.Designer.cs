@@ -32,15 +32,16 @@
             estoqueToolStripMenuItem = new ToolStripMenuItem();
             cadastroDeProdutoToolStripMenuItem = new ToolStripMenuItem();
             solicitaçãoDeProdutoToolStripMenuItem = new ToolStripMenuItem();
+            produtosSolicitadosToolStripMenuItem = new ToolStripMenuItem();
             relatorioToolStripMenuItem = new ToolStripMenuItem();
             estoqueToolStripMenuItem1 = new ToolStripMenuItem();
+            relatorioPDFEstoque = new ToolStripMenuItem();
             solicitaçãoToolStripMenuItem = new ToolStripMenuItem();
+            relatorioPDFSolicitacao = new ToolStripMenuItem();
             cadastroUsuarioToolStripMenuItem = new ToolStripMenuItem();
             cadastroDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            permissãoDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
             trocaDeSenhaToolStripMenuItem = new ToolStripMenuItem();
             sairDoSistemaToolStripMenuItem = new ToolStripMenuItem();
-            produtosSolicitadosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -74,6 +75,13 @@
             solicitaçãoDeProdutoToolStripMenuItem.Text = "Solicitação de Produto";
             solicitaçãoDeProdutoToolStripMenuItem.Click += solicitaçãoDeProdutoToolStripMenuItem_Click;
             // 
+            // produtosSolicitadosToolStripMenuItem
+            // 
+            produtosSolicitadosToolStripMenuItem.Name = "produtosSolicitadosToolStripMenuItem";
+            produtosSolicitadosToolStripMenuItem.Size = new Size(193, 22);
+            produtosSolicitadosToolStripMenuItem.Text = "Produtos Solicitados";
+            produtosSolicitadosToolStripMenuItem.Click += produtosSolicitadosToolStripMenuItem_Click;
+            // 
             // relatorioToolStripMenuItem
             // 
             relatorioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { estoqueToolStripMenuItem1, solicitaçãoToolStripMenuItem });
@@ -83,19 +91,37 @@
             // 
             // estoqueToolStripMenuItem1
             // 
+            estoqueToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { relatorioPDFEstoque });
             estoqueToolStripMenuItem1.Name = "estoqueToolStripMenuItem1";
             estoqueToolStripMenuItem1.Size = new Size(131, 22);
             estoqueToolStripMenuItem1.Text = "Estoque";
+            estoqueToolStripMenuItem1.Click += estoqueToolStripMenuItem1_Click;
+            // 
+            // relatorioPDFEstoque
+            // 
+            relatorioPDFEstoque.Name = "relatorioPDFEstoque";
+            relatorioPDFEstoque.Size = new Size(145, 22);
+            relatorioPDFEstoque.Text = "Relatorio PDF";
+            relatorioPDFEstoque.Click += relatorioPDFToolStripMenuItem1_Click;
             // 
             // solicitaçãoToolStripMenuItem
             // 
+            solicitaçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { relatorioPDFSolicitacao });
             solicitaçãoToolStripMenuItem.Name = "solicitaçãoToolStripMenuItem";
             solicitaçãoToolStripMenuItem.Size = new Size(131, 22);
             solicitaçãoToolStripMenuItem.Text = "Solicitação";
+            solicitaçãoToolStripMenuItem.Click += solicitaçãoToolStripMenuItem_Click;
+            // 
+            // relatorioPDFSolicitacao
+            // 
+            relatorioPDFSolicitacao.Name = "relatorioPDFSolicitacao";
+            relatorioPDFSolicitacao.Size = new Size(145, 22);
+            relatorioPDFSolicitacao.Text = "Relatorio PDF";
+            relatorioPDFSolicitacao.Click += relatorioPDFSolicitacao_Click;
             // 
             // cadastroUsuarioToolStripMenuItem
             // 
-            cadastroUsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeUsuarioToolStripMenuItem, permissãoDeUsuarioToolStripMenuItem, trocaDeSenhaToolStripMenuItem });
+            cadastroUsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeUsuarioToolStripMenuItem, trocaDeSenhaToolStripMenuItem });
             cadastroUsuarioToolStripMenuItem.Name = "cadastroUsuarioToolStripMenuItem";
             cadastroUsuarioToolStripMenuItem.Size = new Size(64, 20);
             cadastroUsuarioToolStripMenuItem.Text = "Usuarios";
@@ -103,22 +129,16 @@
             // cadastroDeUsuarioToolStripMenuItem
             // 
             cadastroDeUsuarioToolStripMenuItem.Name = "cadastroDeUsuarioToolStripMenuItem";
-            cadastroDeUsuarioToolStripMenuItem.Size = new Size(186, 22);
+            cadastroDeUsuarioToolStripMenuItem.Size = new Size(179, 22);
             cadastroDeUsuarioToolStripMenuItem.Text = "Cadastro de usuario";
             cadastroDeUsuarioToolStripMenuItem.Click += cadastroDeUsuarioToolStripMenuItem_Click;
-            // 
-            // permissãoDeUsuarioToolStripMenuItem
-            // 
-            permissãoDeUsuarioToolStripMenuItem.Name = "permissãoDeUsuarioToolStripMenuItem";
-            permissãoDeUsuarioToolStripMenuItem.Size = new Size(186, 22);
-            permissãoDeUsuarioToolStripMenuItem.Text = "Permissão de usuario";
-            permissãoDeUsuarioToolStripMenuItem.Click += permissãoDeUsuarioToolStripMenuItem_Click;
             // 
             // trocaDeSenhaToolStripMenuItem
             // 
             trocaDeSenhaToolStripMenuItem.Name = "trocaDeSenhaToolStripMenuItem";
-            trocaDeSenhaToolStripMenuItem.Size = new Size(186, 22);
+            trocaDeSenhaToolStripMenuItem.Size = new Size(179, 22);
             trocaDeSenhaToolStripMenuItem.Text = "Troca de senha";
+            trocaDeSenhaToolStripMenuItem.Click += trocaDeSenhaToolStripMenuItem_Click;
             // 
             // sairDoSistemaToolStripMenuItem
             // 
@@ -126,13 +146,6 @@
             sairDoSistemaToolStripMenuItem.Size = new Size(99, 20);
             sairDoSistemaToolStripMenuItem.Text = "Sair do Sistema";
             sairDoSistemaToolStripMenuItem.Click += sairDoSistemaToolStripMenuItem_Click;
-            // 
-            // produtosSolicitadosToolStripMenuItem
-            // 
-            produtosSolicitadosToolStripMenuItem.Name = "produtosSolicitadosToolStripMenuItem";
-            produtosSolicitadosToolStripMenuItem.Size = new Size(193, 22);
-            produtosSolicitadosToolStripMenuItem.Text = "Produtos Solicitados";
-            produtosSolicitadosToolStripMenuItem.Click += produtosSolicitadosToolStripMenuItem_Click;
             // 
             // FrmMenu
             // 
@@ -146,6 +159,7 @@
             Name = "FrmMenu";
             Text = "Menu Inicial";
             WindowState = FormWindowState.Maximized;
+            Load += FrmMenu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -162,9 +176,10 @@
         private ToolStripMenuItem solicitaçãoToolStripMenuItem;
         private ToolStripMenuItem cadastroUsuarioToolStripMenuItem;
         private ToolStripMenuItem cadastroDeUsuarioToolStripMenuItem;
-        private ToolStripMenuItem permissãoDeUsuarioToolStripMenuItem;
         private ToolStripMenuItem trocaDeSenhaToolStripMenuItem;
         private ToolStripMenuItem sairDoSistemaToolStripMenuItem;
         private ToolStripMenuItem produtosSolicitadosToolStripMenuItem;
+        private ToolStripMenuItem relatorioPDFSolicitacao;
+        private ToolStripMenuItem relatorioPDFEstoque;
     }
 }

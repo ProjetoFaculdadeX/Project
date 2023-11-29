@@ -28,10 +28,11 @@ namespace Projeto1
 
         private void AddToolStripButton_Click(object sender, EventArgs e)
         {
+            Hide();
             var id = 0;
             using (var frm = new frmUser(id))
                 frm.ShowDialog();
-            this.Close();
+            
 
         }
 

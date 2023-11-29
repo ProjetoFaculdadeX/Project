@@ -45,6 +45,8 @@
             label2 = new Label();
             label1 = new Label();
             txtid = new TextBox();
+            label6 = new Label();
+            txtIdEstoque = new TextBox();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             // 
             cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartment.FormattingEnabled = true;
-            cmbDepartment.Location = new Point(126, 151);
+            cmbDepartment.Location = new Point(126, 181);
             cmbDepartment.Name = "cmbDepartment";
             cmbDepartment.Size = new Size(121, 23);
             cmbDepartment.TabIndex = 30;
@@ -60,7 +62,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(34, 159);
+            label5.Location = new Point(34, 189);
             label5.Name = "label5";
             label5.Size = new Size(86, 15);
             label5.TabIndex = 29;
@@ -101,6 +103,7 @@
             DelToolStripButton2.Name = "DelToolStripButton2";
             DelToolStripButton2.Size = new Size(62, 22);
             DelToolStripButton2.Text = "Excluir";
+            DelToolStripButton2.Click += DelToolStripButton2_Click;
             // 
             // returntoolStripButton1
             // 
@@ -110,10 +113,11 @@
             returntoolStripButton1.Name = "returntoolStripButton1";
             returntoolStripButton1.Size = new Size(57, 22);
             returntoolStripButton1.Text = "Voltar";
+            returntoolStripButton1.Click += returntoolStripButton1_Click;
             // 
             // txtunits
             // 
-            txtunits.Location = new Point(126, 122);
+            txtunits.Location = new Point(126, 152);
             txtunits.MaxLength = 9;
             txtunits.Name = "txtunits";
             txtunits.Size = new Size(56, 23);
@@ -123,7 +127,7 @@
             // txtlote
             // 
             txtlote.CharacterCasing = CharacterCasing.Upper;
-            txtlote.Location = new Point(126, 93);
+            txtlote.Location = new Point(126, 123);
             txtlote.MaxLength = 7;
             txtlote.Name = "txtlote";
             txtlote.Size = new Size(100, 23);
@@ -131,7 +135,7 @@
             // 
             // txtdescription
             // 
-            txtdescription.Location = new Point(126, 59);
+            txtdescription.Location = new Point(126, 89);
             txtdescription.MaxLength = 70;
             txtdescription.Name = "txtdescription";
             txtdescription.Size = new Size(309, 23);
@@ -140,7 +144,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(48, 130);
+            label4.Location = new Point(48, 160);
             label4.Name = "label4";
             label4.Size = new Size(72, 15);
             label4.TabIndex = 24;
@@ -149,7 +153,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(87, 101);
+            label3.Location = new Point(87, 131);
             label3.Name = "label3";
             label3.Size = new Size(33, 15);
             label3.TabIndex = 23;
@@ -158,7 +162,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 67);
+            label2.Location = new Point(13, 97);
             label2.Name = "label2";
             label2.Size = new Size(107, 15);
             label2.TabIndex = 22;
@@ -184,11 +188,33 @@
             txtid.TabIndex = 31;
             txtid.TextAlign = HorizontalAlignment.Center;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(55, 68);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 15);
+            label6.TabIndex = 32;
+            label6.Text = "Id Estoque:";
+            label6.TextAlign = ContentAlignment.TopRight;
+            // 
+            // txtIdEstoque
+            // 
+            txtIdEstoque.Location = new Point(126, 60);
+            txtIdEstoque.MaxLength = 7;
+            txtIdEstoque.Name = "txtIdEstoque";
+            txtIdEstoque.ReadOnly = true;
+            txtIdEstoque.Size = new Size(44, 23);
+            txtIdEstoque.TabIndex = 33;
+            txtIdEstoque.TextAlign = HorizontalAlignment.Center;
+            // 
             // FrmEstoqueSolicitacaoAtender
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(508, 313);
+            Controls.Add(label6);
+            Controls.Add(txtIdEstoque);
             Controls.Add(cmbDepartment);
             Controls.Add(label5);
             Controls.Add(toolStrip1);
@@ -226,5 +252,7 @@
         private Label label2;
         private Label label1;
         private TextBox txtid;
+        private Label label6;
+        private TextBox txtIdEstoque;
     }
 }

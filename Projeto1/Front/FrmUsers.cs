@@ -47,11 +47,12 @@ namespace Projeto1
 
         private void bntRegister_Click(object sender, EventArgs e)
         {
-            if (Salvar())
-                this.Close();
+            
+            if (Salvar())                
 
             using (var frm = new FrmLogin())
             {
+                Hide();
                 frm.ShowDialog();
             }
 
@@ -99,7 +100,7 @@ namespace Projeto1
                     if (existingUser != null)
                     {
                         MessageBox.Show("E-mail já cadastrado!", "Usuário", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return false;
+                     return false;
                     }
 
                     if (user.IdUser == 0)
@@ -125,7 +126,7 @@ namespace Projeto1
 
         private void bntReturn_Click(object sender, EventArgs e)
         {
-            Close();
+            Hide();
             using (var frm = new FrmLogin())
                 frm.ShowDialog();
             

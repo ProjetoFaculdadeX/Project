@@ -29,29 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstoqueSolicitacao));
-            dataGridView1 = new DataGridView();
+            dataGridViewSolicitacao = new DataGridView();
             toolStrip1 = new ToolStrip();
             AddToolStripButton = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             DeltoolStripButton1 = new ToolStripButton();
             ReturntoolStripButton1 = new ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewSolicitacao).BeginInit();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewSolicitacao
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.ImeMode = ImeMode.NoControl;
-            dataGridView1.Location = new Point(12, 50);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1132, 553);
-            dataGridView1.TabIndex = 1;
+            dataGridViewSolicitacao.AllowUserToAddRows = false;
+            dataGridViewSolicitacao.AllowUserToDeleteRows = false;
+            dataGridViewSolicitacao.AllowUserToResizeColumns = false;
+            dataGridViewSolicitacao.AllowUserToResizeRows = false;
+            dataGridViewSolicitacao.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            dataGridViewSolicitacao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewSolicitacao.ImeMode = ImeMode.NoControl;
+            dataGridViewSolicitacao.Location = new Point(12, 50);
+            dataGridViewSolicitacao.Name = "dataGridViewSolicitacao";
+            dataGridViewSolicitacao.ReadOnly = true;
+            dataGridViewSolicitacao.RowTemplate.Height = 25;
+            dataGridViewSolicitacao.Size = new Size(1132, 553);
+            dataGridViewSolicitacao.TabIndex = 1;
             // 
             // toolStrip1
             // 
@@ -83,6 +85,7 @@
             DeltoolStripButton1.Name = "DeltoolStripButton1";
             DeltoolStripButton1.Size = new Size(122, 22);
             DeltoolStripButton1.Text = "Excluir Solicitação";
+            DeltoolStripButton1.Click += DeltoolStripButton1_Click;
             // 
             // ReturntoolStripButton1
             // 
@@ -92,6 +95,7 @@
             ReturntoolStripButton1.Name = "ReturntoolStripButton1";
             ReturntoolStripButton1.Size = new Size(57, 22);
             ReturntoolStripButton1.Text = "Voltar";
+            ReturntoolStripButton1.Click += ReturntoolStripButton1_Click;
             // 
             // FrmEstoqueSolicitacao
             // 
@@ -99,13 +103,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1171, 626);
             Controls.Add(toolStrip1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewSolicitacao);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmEstoqueSolicitacao";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmEstoqueSolicitacao";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewSolicitacao).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -114,7 +118,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewSolicitacao;
         private ToolStrip toolStrip1;
         private ToolStripButton AddToolStripButton;
         private ToolStripSeparator toolStripSeparator1;
