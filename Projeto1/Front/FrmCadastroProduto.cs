@@ -54,21 +54,21 @@ namespace Projeto1
             {
                 Text = "Alterar produto";
                 AddToolStripButton1.Visible = true;
-                DelToolStripButton2.Visible = false;               
+                DelToolStripButton2.Visible = false;
             }
         }
 
         private void TravarFormulario(string operacao = "a")
         {
             if (operacao == "v")
-            txtdescription.ReadOnly = true;
+                txtdescription.ReadOnly = true;
             txtid.ReadOnly = true;
             txtlote.ReadOnly = true;
             txtunits.ReadOnly = true;
             cmbDepartment.Enabled = false;
 
             if (operacao == "e")
-            txtdescription.ReadOnly = true;
+                txtdescription.ReadOnly = true;
             txtid.ReadOnly = true;
             txtlote.ReadOnly = true;
             txtunits.ReadOnly = true;
@@ -94,6 +94,7 @@ namespace Projeto1
                     cmbDepartment.DisplayMember = "Name";
                     cmbDepartment.ValueMember = "IdDepartment";
                     cmbDepartment.SelectedIndex = -1;
+
                 }
             }
             catch (Exception ex)
@@ -117,7 +118,7 @@ namespace Projeto1
                         txtunits.Text = product.Unit!.ToString();
                         txtlote.Text = product.Lote;
                         cmbDepartment.SelectedValue = product.IdDepartment;
-                       
+
 
                     }
                 }
@@ -144,7 +145,7 @@ namespace Projeto1
             product.Description = txtdescription.Text;
             product.Unit = Convert.ToInt32(txtunits.Text);
             product.Lote = txtlote.Text;
-            product.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);            
+            product.IdDepartment = Convert.ToInt32(cmbDepartment.SelectedValue);
             product.Date_Created = DateTime.Now;
             product.Date_Updated = DateTime.Now;
 
@@ -211,23 +212,17 @@ namespace Projeto1
                 {
                     var product = context.Estoque.First();
 
-                    product.Id = Convert.ToInt32(txtid.Text);                    
+                    product.Id = Convert.ToInt32(txtid.Text);
                     var entry = context.Entry(product);
 
-                    if (product.IdDepartment != null)
-                    {
-                        MessageBox.Show("PRODUTO COM DEPARTAMENTO VINCULADO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information); 
-                        return false;
-                    }
-                    else
-                    {
-                        context.Entry(product).State = EntityState.Deleted;
-                        context.Estoque.Remove(product);
-                        MessageBox.Show("PRODUTO EXCLUIDO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        context.SaveChanges();
-                        return true;
-                    }
-                    
+
+                    context.Entry(product).State = EntityState.Deleted;
+                    context.Estoque.Remove(product);
+                    MessageBox.Show("PRODUTO EXCLUIDO COM SUCESSO!", "PRODUTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    context.SaveChanges();
+                    return true;
+
+
 
                 }
             }
@@ -243,7 +238,7 @@ namespace Projeto1
             Close();
             FrmEstoque frmEstoque = new FrmEstoque();
             frmEstoque.Show();
-            
+
         }
     }
 }

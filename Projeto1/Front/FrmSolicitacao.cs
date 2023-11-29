@@ -66,7 +66,7 @@ namespace Projeto1.Front
 
         private void ReturntoolStripButton1_Click(object sender, EventArgs e)
         {
-            Close();
+            Hide();
             using (var frm = new FrmMenu())
             frm.ShowDialog();
             
