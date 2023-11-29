@@ -40,7 +40,6 @@
             relatorioPDFSolicitacao = new ToolStripMenuItem();
             cadastroUsuarioToolStripMenuItem = new ToolStripMenuItem();
             cadastroDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            trocaDeSenhaToolStripMenuItem = new ToolStripMenuItem();
             sairDoSistemaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -121,7 +120,7 @@
             // 
             // cadastroUsuarioToolStripMenuItem
             // 
-            cadastroUsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeUsuarioToolStripMenuItem, trocaDeSenhaToolStripMenuItem });
+            cadastroUsuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeUsuarioToolStripMenuItem });
             cadastroUsuarioToolStripMenuItem.Name = "cadastroUsuarioToolStripMenuItem";
             cadastroUsuarioToolStripMenuItem.Size = new Size(64, 20);
             cadastroUsuarioToolStripMenuItem.Text = "Usuarios";
@@ -129,16 +128,9 @@
             // cadastroDeUsuarioToolStripMenuItem
             // 
             cadastroDeUsuarioToolStripMenuItem.Name = "cadastroDeUsuarioToolStripMenuItem";
-            cadastroDeUsuarioToolStripMenuItem.Size = new Size(179, 22);
+            cadastroDeUsuarioToolStripMenuItem.Size = new Size(180, 22);
             cadastroDeUsuarioToolStripMenuItem.Text = "Cadastro de usuario";
             cadastroDeUsuarioToolStripMenuItem.Click += cadastroDeUsuarioToolStripMenuItem_Click;
-            // 
-            // trocaDeSenhaToolStripMenuItem
-            // 
-            trocaDeSenhaToolStripMenuItem.Name = "trocaDeSenhaToolStripMenuItem";
-            trocaDeSenhaToolStripMenuItem.Size = new Size(179, 22);
-            trocaDeSenhaToolStripMenuItem.Text = "Troca de senha";
-            trocaDeSenhaToolStripMenuItem.Click += trocaDeSenhaToolStripMenuItem_Click;
             // 
             // sairDoSistemaToolStripMenuItem
             // 
@@ -176,7 +168,6 @@
         private ToolStripMenuItem solicitaçãoToolStripMenuItem;
         private ToolStripMenuItem cadastroUsuarioToolStripMenuItem;
         private ToolStripMenuItem cadastroDeUsuarioToolStripMenuItem;
-        private ToolStripMenuItem trocaDeSenhaToolStripMenuItem;
         private ToolStripMenuItem sairDoSistemaToolStripMenuItem;
         private ToolStripMenuItem produtosSolicitadosToolStripMenuItem;
         private ToolStripMenuItem relatorioPDFSolicitacao;

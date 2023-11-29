@@ -91,6 +91,7 @@ namespace Projeto1.Front
         }
         private bool Salvar()
         {
+            var datetime = DateTime.Now;
             var productid = txtid.Text;
             using (var context = new DataContext())
             {
@@ -101,19 +102,16 @@ namespace Projeto1.Front
                 var productsolicitacao = context.Solicitacao
                     .FirstOrDefault(s => s.Unit == unidades);
                 var productestoque = context.Estoque
-                    .FirstOrDefault(e => e.Id == estoqueid);
-                var date = context.Estoque
-                    .FirstOrDefault(e => e.Date_Updated == DateTime.Now);
+                    .FirstOrDefault(e => e.Id == estoqueid || e.Date_Updated == datetime);
+                
 
                 if (productid != null && productsolicitacao != null && productestoque != null)
-                {
-                    // Subtrai a quantidade da Solicitação da quantidade do Estoque
+                {                 
                     productestoque.Unit -= productsolicitacao.Unit;
 
                     context.Entry(product).State = EntityState.Deleted;
                     context.Solicitacao.Remove(productsolicitacao);
-                    //context.Entry(date?.Date_Updated).State = EntityState.Modified;                    
-
+                    productestoque.Date_Updated = datetime;
                     context.SaveChanges();
 
                     MessageBox.Show("SOLICITAÇÃO ATENDIDA!", "Solicitação", MessageBoxButtons.OK, MessageBoxIcon.Information);

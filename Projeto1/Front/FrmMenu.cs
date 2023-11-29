@@ -48,12 +48,7 @@ namespace Projeto1
             Close();
         }
 
-        private void permissãoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            using (var frm = new FrmUsersPermission())
-                frm.ShowDialog();
-        }
+    
 
         private void cadastroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
